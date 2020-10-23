@@ -1,6 +1,7 @@
 const addform = document.querySelector(".addForm");
 const ul = document.querySelector(".todos");
 const search = document.querySelector(".search input");
+const li = document.querySelectorAll("li");
 
 const generateTemplate = (todo) => {
   const html = `
@@ -48,4 +49,10 @@ search.addEventListener("keyup", () => {
   const term = search.value.trim().toLowerCase();
   // console.log(term);
   filterTodo(term);
+});
+
+ul.addEventListener("click", (e) => {
+  if (e.target.textContent) {
+    e.target.classList.toggle("strike");
+  }
 });
